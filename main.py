@@ -25,9 +25,9 @@ def predict(image):
 def index():
     return render_template('index.html')    #returning the index.html file
 
-@app.route('/index1.html', methods=['GET'])
-def index1():
-    return render_template('index1.html') 
+# @app.route('/index1.html', methods=['GET'])
+# def index1():
+#     return render_template('index1.html') 
 
 @app.route('/home.html', methods=['GET'])
 def home():
@@ -35,12 +35,22 @@ def home():
 
 
 # predict route
-@app.route('/prediction', methods=['POST'])
-def prediction():
+@app.route('/predict', methods=['POST'])
+def predictt():
     img = request.files['img']    #getting the image from the user
     img.save('static\img.jpg')     #saving the image
     prediction, confidence = predict("static\img.jpg")     #predicting the image from previously defined predict function and sending the image as an argument
-    return render_template('prediction.html', data=[prediction, confidence],usr_img = img)   #returning the prediction and confidence to the user
+    return render_template('predict.html', data=[prediction, confidence],usr_img = img)   #returning the prediction and confidence to the user
+
+
+
+# # predict route
+# @app.route('/prediction', methods=['POST'])
+# def prediction():
+#     img = request.files['img']    #getting the image from the user
+#     img.save('static\img.jpg')     #saving the image
+#     prediction, confidence = predict("static\img.jpg")     #predicting the image from previously defined predict function and sending the image as an argument
+#     return render_template('prediction.html', data=[prediction, confidence],usr_img = img)   #returning the prediction and confidence to the user
 
 
 
