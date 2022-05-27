@@ -15,6 +15,7 @@ def predict(image):
     img = img.resize((256,256))     #resizing the image
     img = np.array(img)     #converting the image to numpy array
     img = np.expand_dims(img, axis=0)   #expanding the dimension
+    img = img[:,:,:,0:3]     #converting 4 channel to 3 channel
     prediction = class_names [np.argmax(model.predict(img))]    #predicting the image
     a = model.predict(img)
     confidence = max(a)[np.argmax(a)]*100   #calculating the confidence
