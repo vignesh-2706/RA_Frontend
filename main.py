@@ -5,7 +5,7 @@ import numpy as np
 import pickle
 from PIL import Image
 
-model = pickle.load(open('RA_pick','rb'))  #loading the model
+model = pickle.load(open('RA.pickle','rb'))  #loading the model
 class_names = ['Negative', 'Positive']  #assigning the class_names
 
 app = Flask(__name__)
