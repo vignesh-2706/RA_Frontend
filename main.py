@@ -2,9 +2,10 @@
 from flask import Flask, request, render_template
 from tensorflow.keras.models import load_model
 import numpy as np
+import pickle
 from PIL import Image
 
-model = load_model('SavedModel_V1.h5')  #loading the model
+model = pickle.load(open('RA_pick','rb'))  #loading the model
 class_names = ['Negative', 'Positive']  #assigning the class_names
 
 app = Flask(__name__)
